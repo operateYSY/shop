@@ -1,13 +1,15 @@
 package entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
+@TableName(value = "user")
 public class User {
-int userId;
-String imgPic;
-String  userName;
-String  password;
-String address;
-String telephone;
+    private  int userId;
+    private String imgPic;
+    private String  userName;
+    private String  password;
+    private String address;
+    private String telephone;
 }

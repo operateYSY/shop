@@ -1,9 +1,6 @@
 package entity;
 
 import lombok.Data;
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
 @Data
 public class OrderForm {
@@ -14,9 +11,10 @@ public class OrderForm {
     int state;
     String comment;
 
-   String orderTime;
+   Date orderTime;
 //    Date dt= new Date();
 //    SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //   String orderTime=sdf.format(dt); 存储datetime的方法,别删
+    //Date date = sdf.parse(orderTime);String 转 Date
 
 }

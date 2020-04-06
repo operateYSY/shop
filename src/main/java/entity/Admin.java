@@ -1,8 +1,11 @@
 package entity;
 
+import lombok.Data;
+
+@Data
 public class Admin {
-    int adminId;
-    String adminName;
-    String password;
+    private   int adminId;
+    private   String adminName;
+    private   String password;
 
 }
