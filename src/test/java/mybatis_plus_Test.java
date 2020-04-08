@@ -1,10 +1,8 @@
-package com.iflytek;
-
-
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import dao.UserDao;
-import entity.User;
+import com.iflytek.dao.UserDao;
+import com.iflytek.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +25,16 @@ public class mybatis_plus_Test {
 //        for(User u:list){
 //            System.out.println(u);
 //        }
-        Page<User> page = new Page<>(1, 2,true);
-       IPage<User> ipage= userDao.selectPage(page,null);
-        List<User> list = ipage.getRecords();
+        Page<User> page = new Page<User>(1, 2);
+        QueryWrapper<User> queryWrapper=new QueryWrapper<User>();
+        queryWrapper.like("user_name","姚");
 
-        System.out.println("总记录数：" + ipage.getTotal());
-        System.out.println("总页数" + ipage.getPages());
+       IPage<User> iPage= userDao.selectPage(page ,null);
 
+
+        System.out.println("总记录数：" + iPage.getTotal());
+        System.out.println("总页数" + iPage.getPages());
+        List<User> list = iPage.getRecords();
         for(User u:list){
            System.out.println(u);
    }
